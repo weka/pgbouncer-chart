@@ -69,7 +69,7 @@ spec:
         image: {{ template "pgbouncer.image" . }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         command:
-        - /opt/pgbouncer/pgbouncer
+        - {{ template "pgbouncer.command" . }}
         - /etc/pgbouncer/pgbouncer.ini
         {{- if .Values.lifecycle }}
         lifecycle: {{ toYaml .Values.lifecycle | trimSuffix "\n" | nindent 10 }}

@@ -67,6 +67,17 @@ Contruct and return the image to use
 {{- end -}}
 
 {{/*
+Return the command to use
+*/}}
+{{- define "pgbouncer.command" -}}
+{{- if not .Values.image.command -}}
+{{ printf "/opt/pgbouncer/pgbouncer" }}
+{{- else -}}
+{{ printf "%s" .Values.image.command -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
 Contruct and return the exporter image to use
 */}}
 {{- define "pgbouncer.exporterImage" -}}
