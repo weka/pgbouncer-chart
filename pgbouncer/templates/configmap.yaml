@@ -15,7 +15,7 @@ data:
 {{- end }}
     [users]
 {{- range $key, $val := .Values.config.users }}
-    {{ $key }} ={{ range $k, $v := $val }} {{ $k }}={{ $v }}{{ end }}
+    {{ $key }} = {{ $val }}
 {{- end }}
 
     [pgbouncer]
